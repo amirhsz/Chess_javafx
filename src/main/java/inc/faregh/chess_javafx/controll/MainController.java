@@ -4,8 +4,6 @@ import javafx.fxml.Initializable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -27,7 +25,11 @@ public class MainController implements Initializable {
     @FXML
     private void SettingButtonAction(ActionEvent event) throws IOException {
         Parent setting = FXMLLoader.load(getClass().getResource("Setting.fxml"));
-        
+        Stage settingstg = new Stage();
+        settingstg.setScene(new Scene(setting));
+        settingstg.setTitle("Play");
+        settingstg.show();
+        here.getScene().getWindow().hide();
     }
     @FXML
     private void AboutusButtonAction(ActionEvent event) throws IOException {
@@ -39,6 +41,5 @@ public class MainController implements Initializable {
         try {
             here = FXMLLoader.load(location);
         } catch (IOException ex) {}
-}
     }
 }
