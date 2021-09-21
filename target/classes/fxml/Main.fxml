@@ -5,7 +5,19 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import java.net.URL?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml"  fx:controller="inc.faregh.chess_javafx.controll.MainController">
-    
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml"  fx:controller="inc.faregh.chess_javafx.controll.MainController">
+    <children>
+        <VBox alignment="CENTER" spacing="15" prefHeight="300" prefWidth="200">
+            <children>
+                <Button id="play" textAlignment="CENTER" text="Play" onAction="#PlayButtonAction"/> 
+                <Button id="setting" textAlignment="CENTER" text="Setting" onAction="#SettingButtonAction"/> 
+                <Button id="about_us" textAlignment="CENTER" text="About us" onAction="#AboutusButtonAction"/> 
+            </children>
+        </VBox>       
+    </children>
+    <stylesheets>
+        <URL value="@styles/Main.css"/>
+    </stylesheets>
 </AnchorPane>
