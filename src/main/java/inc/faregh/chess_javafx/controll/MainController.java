@@ -12,7 +12,14 @@ public class MainController implements Initializable {
     private void PlayButtonAction(ActionEvent event) {
         
     }
-    
+    @FXML
+    private void SettingButtonAction(ActionEvent event) {
+        
+    }
+    @FXML
+    private void AboutusButtonAction(ActionEvent event) {
+        
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
