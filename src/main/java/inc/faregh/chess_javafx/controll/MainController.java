@@ -34,6 +34,11 @@ public class MainController implements Initializable {
     @FXML
     private void AboutusButtonAction(ActionEvent event) throws IOException {
         Parent aboutus = FXMLLoader.load(getClass().getResource("About_us.fxml"));
+        Stage aboutusstg = new Stage();
+        aboutusstg.setScene(new Scene(aboutus));
+        aboutusstg.setTitle("Play");
+        aboutusstg.show();
+        here.getScene().getWindow().hide();
     }
 
     @Override
