@@ -9,11 +9,12 @@ package inc.faregh.chess_javafx.modle;
  *
  * @author Amir
  */
-public enum Type {
-    k       //king(شاه)
-    ,q      //queen(وزیر)
-    ,r      //rook(رخ)
-    ,b      //bishop(فیل)
-    ,n      //knigh(اسب)
-    ,p      //pawn(سرباز)
+public class King extends pieces {
+    
+
+    public King(String butid, Color color) {
+        super(butid, Type.k, color);
+    }
+
+    
 }

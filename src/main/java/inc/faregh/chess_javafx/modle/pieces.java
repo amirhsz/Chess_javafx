@@ -5,6 +5,8 @@
  */
 package inc.faregh.chess_javafx.modle;
 
+import javafx.scene.image.Image;
+
 /**
  *
  * @author Amir
@@ -14,7 +16,7 @@ public abstract class pieces {
     protected Type type;
     protected Color color;
     protected int i,j;
-
+    protected Image image;
     public pieces(String butid, Type type, Color color) {
         this.butid = butid;
         i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
