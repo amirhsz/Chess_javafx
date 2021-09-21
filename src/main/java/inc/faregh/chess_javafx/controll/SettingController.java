@@ -5,10 +5,20 @@
  */
 package inc.faregh.chess_javafx.controll;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+
 /**
  *
  * @author Amir
  */
-public class SettingController {
+public class SettingController implements Initializable {
+
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        
+    }
     
 }

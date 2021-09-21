@@ -40,7 +40,6 @@ public class MainController implements Initializable {
         aboutusstg.show();
         here.getScene().getWindow().hide();
     }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
