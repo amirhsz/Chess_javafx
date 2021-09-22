@@ -9,6 +9,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
-        <URL value="@/styles/About_us.css"/>
+        <URL value="@../styles/About_us.css"/>
     </stylesheets>
 </AnchorPane>

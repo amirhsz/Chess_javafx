@@ -18,7 +18,6 @@ public class App extends Application {
         
         stage.setTitle("Chess");
         stage.setScene(scene);
-        stage.setFullScreen(true);
         stage.show();
     }
 

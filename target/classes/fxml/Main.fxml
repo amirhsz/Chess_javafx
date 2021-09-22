@@ -18,6 +18,6 @@
         </VBox>       
     </children>
     <stylesheets>
-        <URL value="@styles/Main.css"/>
+        <URL value="@../styles/Main.css"/>
     </stylesheets>
 </AnchorPane>
