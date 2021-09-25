@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,17 +8,14 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml"  fx:controller="inc.faregh.chess_javafx.controll.MainController">
+<AnchorPane id="AnchorPane" stylesheets="@../styles/Main.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="inc.faregh.chess_javafx.controll.MainController">
     <children>
-        <VBox alignment="CENTER" spacing="15" prefHeight="300" prefWidth="200">
+        <VBox alignment="CENTER" layoutX="68.0" layoutY="97.0" prefHeight="107.0" prefWidth="65.0" spacing="15" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="68.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="97.0">
             <children>
-                <Button id="play" textAlignment="CENTER" text="Play" onAction="#PlayButtonAction"/> 
-                <Button id="setting" textAlignment="CENTER" text="Setting" onAction="#SettingButtonAction"/> 
-                <Button id="about_us" textAlignment="CENTER" text="About us" onAction="#AboutusButtonAction"/> 
+                <Button id="play" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#PlayButtonAction" text="Play" textAlignment="CENTER" /> 
+                <Button id="setting" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#SettingButtonAction" text="Setting" textAlignment="CENTER" /> 
+                <Button id="about_us" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AboutusButtonAction" text="About us" textAlignment="CENTER" /> 
             </children>
         </VBox>       
     </children>
-    <stylesheets>
-        <URL value="@../styles/Main.css"/>
-    </stylesheets>
 </AnchorPane>
