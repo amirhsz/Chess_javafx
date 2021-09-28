@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml"  fx:controller="inc.faregh.chess_javafx.controll.MainController">
+<AnchorPane id="AnchorPane" prefHeight="367.0" prefWidth="334.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inc.faregh.chess_javafx.controll.MainController">
     <children>
-        <VBox alignment="CENTER" spacing="15" prefHeight="300" prefWidth="200">
+        <VBox alignment="CENTER" layoutX="124.0" layoutY="111.0" prefHeight="145.0" prefWidth="86.0" spacing="15" AnchorPane.bottomAnchor="111.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="111.0">
             <children>
-                <Button id="play" textAlignment="CENTER" text="Play" onAction="#PlayButtonAction"/> 
-                <Button id="setting" textAlignment="CENTER" text="Setting" onAction="#SettingButtonAction"/> 
-                <Button id="about_us" textAlignment="CENTER" text="About us" onAction="#AboutusButtonAction"/> 
+                <Button id="play" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#PlayButtonAction" text=" Play a game" textAlignment="CENTER" />
+            <Button id="load" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Load a game" /> 
+                <Button id="setting" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#SettingButtonAction" text="Setting" textAlignment="CENTER" /> 
+                <Button id="about_us" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#AboutusButtonAction" text="About us" textAlignment="CENTER" /> 
             </children>
-        </VBox>       
+        </VBox>
+      <Button id="props" layoutX="14.0" layoutY="328.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="0.0" />       
     </children>
-    <stylesheets>
-        <URL value="@../styles/Main.css"/>
-    </stylesheets>
 </AnchorPane>
