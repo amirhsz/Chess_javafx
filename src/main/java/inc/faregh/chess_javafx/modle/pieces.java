@@ -5,7 +5,6 @@
  */
 package inc.faregh.chess_javafx.modle;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader;
 import java.util.Arrays;
 
 
@@ -80,4 +79,5 @@ public abstract class pieces {
     public boolean[][] where(pieces pic[]){
         return null;
     }
+
 }
