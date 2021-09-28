@@ -5,7 +5,7 @@
  */
 package inc.faregh.chess_javafx.modle;
 
-import java.util.Arrays;
+import java.lang.reflect.Array;
 
 
 /**
@@ -51,8 +51,8 @@ public abstract class pieces {
         return color;
     }
 
-    protected String[][] buts(){
-        String[][] but = {};
+    public String[][] buts(){
+        String but[][] = (String[][])Array.newInstance(String.class,8,8);
         for(int ib = 0 ; ib <8 ; ib++){
             for(int jb = 0 ; jb <8 ; jb++){
                 but[ib][jb] = Integer.toString(ib)+","+Integer.toString(jb);
@@ -62,14 +62,16 @@ public abstract class pieces {
     }
 
     protected boolean[][] isemp(pieces pic[]){
-        String[][] but = buts();
-        boolean[][] res = {};
+        String but[][] = buts();
+        boolean res[][] = (boolean[][]) Array.newInstance(boolean.class,8,8);
         for(int ib = 0 ; ib <8 ; ib++){
             for(int jb = 0 ; jb <8 ; jb++){
-                if(Arrays.binarySearch(pic, but[ib][jb])<0){
-                    res[ib][jb] = true;
-                }else{
-                    res[ib][jb] = false;
+                for(pieces p:pic){
+                    if(p.getButid().equals(but[ib][jb])){
+                        res[ib][jb] = false;
+                    }else{
+                        res[ib][jb] = true;
+                    }
                 }
             }
         }

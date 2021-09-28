@@ -5,6 +5,8 @@
  */
 package inc.faregh.chess_javafx.modle;
 
+import java.lang.reflect.Array;
+
 /**
  *
  * @author Amir
@@ -18,8 +20,8 @@ public class King extends pieces {
 
     @Override
     public boolean[][] where(pieces pic[]){
-        boolean[][] isemp = super.isemp(pic);
-        boolean[][] res = {};
+        boolean isemp[][] = super.isemp(pic);
+        boolean res[][] = (boolean[][])Array.newInstance(boolean.class,8,8);
         for(int ib = 0 ; ib<8 ; ib++){
             if(ib == i || ib == i-1 || ib == i+1){
                 for(int jb = 0 ; jb<8 ; jb++){
