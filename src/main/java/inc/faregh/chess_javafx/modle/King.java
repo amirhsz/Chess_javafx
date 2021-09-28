@@ -19,13 +19,12 @@ public class King extends pieces {
     }
 
     @Override
-    public boolean[][] where(pieces pic[]){
-        boolean isemp[][] = super.isemp(pic);
+    public boolean[][] where(){
         boolean res[][] = (boolean[][])Array.newInstance(boolean.class,8,8);
         for(int ib = 0 ; ib<8 ; ib++){
             if(ib == i || ib == i-1 || ib == i+1){
                 for(int jb = 0 ; jb<8 ; jb++){
-                    if((jb == j-1 || jb == j+1 || (ib != i && jb == j))&&(isemp[ib][jb])){
+                    if(jb == j-1 || jb == j+1 || (ib != i && jb == j)){
                         res[ib][jb] = true;
                     }else{
                         res[ib][jb] = false;

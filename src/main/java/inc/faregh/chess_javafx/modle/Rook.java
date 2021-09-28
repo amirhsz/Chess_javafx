@@ -11,18 +11,18 @@ import java.lang.reflect.Array;
  *
  * @author Amir
  */
-public class Queen extends pieces {
+public class Rook extends pieces {
 
-    public Queen(String butid, Color color) {
-        super(butid, Type.q, color);
+    public Rook(String butid, Color color) {
+        super(butid, Type.r, color);
     }
 
-    @Override
+    @Override 
     public boolean[][] where(){
         boolean res[][] = (boolean[][])Array.newInstance(boolean.class,8,8);
         for(int ib = 0 ; ib<8 ; ib++){
             for(int jb = 0 ; jb<8 ; jb++){
-                if((jb==j&&ib!=i)||(ib==i&&jb!=j)||(Math.abs(ib-i)==Math.abs(jb-j)&&jb!=j)){
+                if((jb==j&&ib!=i)||(ib==i&&jb!=j)){
                     res[ib][jb] = true;
                 }else{
                     res[ib][jb] = false;
@@ -31,5 +31,4 @@ public class Queen extends pieces {
         }
         return res;
     }
-
 }
