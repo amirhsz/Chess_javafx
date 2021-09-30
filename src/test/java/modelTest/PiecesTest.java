@@ -20,33 +20,36 @@ public class PiecesTest {
     
 
     @Test
-    @Ignore
     public void queenTest(){
         Queen queen1 = new Queen("0,0",Color.b);
         Queen queen2 = new Queen("4,3",Color.b);
         Queen queen3 = new Queen("1,7",Color.b);
         
         
-        pieces pic[] = {new Queen("0,0",Color.b),
+        pieces pic[] = {
+        new Queen("0,0",Color.b),
         new Queen("1,7",Color.b),
-        new Queen("4,3",Color.b)
+        new Queen("4,3",Color.b),
+        new Queen("0,3",Color.b),
+        new Queen("3,0",Color.b),
+        new Queen("3,3",Color.b)
         };
         
         
         stats res1[][] = 
-        {{stats.n,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u},
+        {{stats.n,stats.u,stats.u,stats.k,stats.n,stats.n,stats.n,stats.n},
         {stats.u,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.u,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u}};
+        {stats.k,stats.n,stats.n,stats.k,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n}};
         stats res2[][] = {
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.u},
-        {stats.u,stats.n,stats.n,stats.u,stats.n,stats.n,stats.u,stats.n},
-        {stats.n,stats.u,stats.n,stats.u,stats.n,stats.u,stats.n,stats.n},
-        {stats.n,stats.n,stats.u,stats.u,stats.u,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
+        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
+        {stats.n,stats.u,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
+        {stats.n,stats.n,stats.u,stats.k,stats.u,stats.n,stats.n,stats.n},
         {stats.u,stats.u,stats.u,stats.n,stats.u,stats.u,stats.u,stats.u},
         {stats.n,stats.n,stats.u,stats.u,stats.u,stats.n,stats.n,stats.n},
         {stats.n,stats.u,stats.n,stats.u,stats.n,stats.u,stats.n,stats.n},
@@ -69,6 +72,7 @@ public class PiecesTest {
     }
 
     @Test
+    @Ignore
     public void kingtest(){
         King king1 = new King("0,0",Color.b);
         King king2 = new King("4,3",Color.b);

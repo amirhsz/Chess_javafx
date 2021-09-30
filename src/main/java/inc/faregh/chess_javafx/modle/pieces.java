@@ -69,6 +69,7 @@ public abstract class pieces {
                 for(pieces p:pic){
                     if(p.getButid().equals(but[ib][jb])){
                         res[ib][jb] = false;
+                        break;
                     }else{
                         res[ib][jb] = true;
                     }

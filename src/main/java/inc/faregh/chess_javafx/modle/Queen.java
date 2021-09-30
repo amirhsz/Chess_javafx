@@ -25,26 +25,47 @@ public class Queen extends pieces {
             for(int jb = 0 ; jb<8 ; jb++){
                 if(res[ib][jb]==null){
                     if((jb==j&&ib!=i)||(ib==i&&jb!=j)||(Math.abs(ib-i)==Math.abs(jb-j)&&jb!=j)){
+                        System.out.println(isemp[ib][jb]+", "+ib+", "+jb);
                         if(isemp[ib][jb]){
                             res[ib][jb] = stats.u;
                         }else{
                             res[ib][jb] = stats.k;
-                            if(jb==j){//down or up
-                                for(int jbh=jb+1;jbh<8;jbh++){
-                                    res[ib][jbh]=stats.n;
+                            if(jb==j&&ib!=i){//down or up
+                                if(i>ib){//down
+                                    for(int p=1;p<ib+1;p++){
+                                        res[ib-p][jb]=stats.n;
+                                    }
+                                }else{//up
+                                    for(int p=1;p<8-ib;p++){
+                                        res[ib+p][jb]=stats.n;
+                                    }
                                 }
-                            }else if(ib==i){//righ or left
-                                for(int ibh=ib+1;ibh<8;ibh++){
-                                    res[ibh][jb]=stats.n;
+                            }else if(ib==i&&jb!=j){//righ or left
+                                if(j>jb){//left
+                                    for(int p=1;p<jb+1;p++){
+                                        res[ib][jb-p]=stats.n;
+                                    }
+                                }else{//righ
+                                    for(int p=1;p<8-jb;p++){
+                                        res[ib][jb+p]=stats.n;
+                                    }
                                 }
                             }else if(ib-i==jb-j){//righ-down
-
+                                for(int p = 1 ; p<Math.min(8-jb, 8-ib) ; p++){
+                                    res[ib+p][jb+p]=stats.n;
+                                }
                             }else if(i-ib==jb-j){//left-down
-
+                                for(int p = 1 ; p<Math.min(jb+1, 8-jb) ; p++){
+                                    res[ib+p][jb-p]=stats.n;
+                                }
                             }else if(ib-i==j-jb){//right-up
-
+                                for(int p = 1 ; p<Math.min(8-jb, ib+1) ; p++){
+                                    res[ib-p][jb+p]=stats.n;
+                                }
                             }else if(i-ib==j-jb){//left-up
-
+                               for(int p = 1 ; p<Math.min(jb, ib)+1 ; p++){
+                                    res[ib-p][jb-p]=stats.n;
+                                } 
                             }
                         }
                     }
