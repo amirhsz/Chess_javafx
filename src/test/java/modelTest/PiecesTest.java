@@ -17,7 +17,7 @@ import static org.junit.Assert.assertArrayEquals;
  */
 public class PiecesTest {
 
-    pieces pic[] = {new King("0,2",Color.b),new King("4,3",Color.b),new King("1,7",Color.b)};
+    
 
     @Test
     @Ignore
@@ -25,6 +25,12 @@ public class PiecesTest {
         Queen queen1 = new Queen("0,0",Color.b);
         Queen queen2 = new Queen("4,3",Color.b);
         Queen queen3 = new Queen("1,7",Color.b);
+        
+        
+        pieces pic[] = {new Queen("0,0",Color.b),
+        new Queen("1,7",Color.b),
+        new Queen("4,3",Color.b)
+        };
         
         
         stats res1[][] = 
@@ -69,6 +75,14 @@ public class PiecesTest {
         King king3 = new King("1,7",Color.b);
         
         
+        pieces pic[] = {
+        new King("0,0",Color.b),
+        new King("1,7",Color.b),
+        new King("4,3",Color.b),
+        //new Rook("7,1",Color.w)
+        };
+        
+        
         stats res1[][]={
         {stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.u,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
@@ -101,15 +115,9 @@ public class PiecesTest {
         };
         
         
-        /*assertArrayEquals("test 1 not passed(king)",king1.where(pic),res1);
+        assertArrayEquals("test 1 not passed(king)",king1.where(pic),res1);
         assertArrayEquals("test 2 not passed(king)",king2.where(pic),res2);
-        assertArrayEquals("test 3 not passed(king)",king3.where(pic),res3);*/
-        for(int i = 0 ; i<8 ; i++){
-            for(int j = 0 ; j<8 ; j++){
-                System.out.println(king1.where(pic)[i][j]);
-            }
-            System.out.println();
-        }
+        assertArrayEquals("test 3 not passed(king)",king3.where(pic),res3);
         
     }
 
@@ -119,6 +127,12 @@ public class PiecesTest {
         Rook rook1 = new Rook("0,0",Color.b);
         Rook rook2 = new Rook("4,3",Color.b);
         Rook rook3 = new Rook("1,7",Color.b);
+        
+        
+        pieces pic[] = {new Rook("0,0",Color.b),
+        new Rook("1,7",Color.b),
+        new Rook("4,3",Color.b)
+        };
         
         
         stats res1[][]={
@@ -153,14 +167,9 @@ public class PiecesTest {
         };
         
         
-        /*assertArrayEquals("test 1 not passed(rook)",rook1.where(pic),res1);
+        assertArrayEquals("test 1 not passed(rook)",rook1.where(pic),res1);
         assertArrayEquals("test 2 not passed(rook)",rook2.where(pic),res2);
-        assertArrayEquals("test 3 not passed(rook)",rook3.where(pic),res3);*/
-        for(int i = 0 ; i < 8 ; i++){
-            for(int j = 0 ; j < 8 ; j++){
-                System.out.println(rook1.where(pic)[i][j]);
-            }
-        }
+        assertArrayEquals("test 3 not passed(rook)",rook3.where(pic),res3);
         
     }
 
@@ -170,6 +179,12 @@ public class PiecesTest {
         Bishop bishop1 = new Bishop("0,0",Color.b);
         Bishop bishop2 = new Bishop("4,3",Color.b);
         Bishop bishop3 = new Bishop("1,7",Color.b);
+        
+        
+        pieces pic[] = {new Bishop("0,0",Color.b),
+        new Bishop("1,7",Color.b),
+        new Bishop("4,3",Color.b)
+        };
         
         
         stats res1[][]={

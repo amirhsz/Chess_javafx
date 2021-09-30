@@ -24,7 +24,7 @@ public class King extends pieces {
         stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
         for(int ib=i-1;ib<=i+1;ib++){
             for(int jb=j-1;jb<=j+1;jb++){
-                if(ib>=0&&jb>=0&&!(ib==i&&jb==j)&&cango(ib,jb,pic)){
+                if(ib>=0&&jb>=0&&ib<=7&&jb<=7&&!(ib==i&&jb==j)&&cango(ib,jb,pic)){
                     if(isemp[ib][jb]){
                         res[ib][jb]=stats.u;
                     }else{
@@ -38,7 +38,8 @@ public class King extends pieces {
     }
 
     private boolean cango(int ib,int jb,pieces pic[]){
-        boolean res = true;// no king condition
+        boolean res = true;
+        // no king condition
         int kings = 0;
         for(int ibh=ib-1;ibh<=ib+1;ibh++){
             for(int jbh=jb-1;jbh<=jb+1;jbh++){
@@ -52,7 +53,7 @@ public class King extends pieces {
         res=kings<2;
         //no one kick him condition
         for(pieces p:pic){
-            if(p.where(pic)[ib][jb]==stats.u&&p.getColor()!=color){
+            if(p.getType()!=Type.k&&p.where(pic)[ib][jb]==stats.u&&p.getColor()!=color){
                 res=false;
             }
         }
