@@ -79,13 +79,13 @@ public class PiecesTest {
         new King("0,0",Color.b),
         new King("1,7",Color.b),
         new King("4,3",Color.b),
-        //new Rook("7,1",Color.w)
+        new Queen("7,1",Color.w)
         };
         
         
         stats res1[][]={
-        {stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
@@ -98,15 +98,15 @@ public class PiecesTest {
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.u,stats.u,stats.u,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.u,stats.n,stats.u,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.u,stats.u,stats.u,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         };
         stats res3[][]={
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.u},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.u},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},

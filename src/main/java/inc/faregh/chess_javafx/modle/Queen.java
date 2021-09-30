@@ -29,10 +29,14 @@ public class Queen extends pieces {
                             res[ib][jb] = stats.u;
                         }else{
                             res[ib][jb] = stats.k;
-                            if(jb==j){
-                                jb = ib = 8;
-                            }else if(ib==i){
-                                break;
+                            if(jb==j){//down or up
+                                for(int jbh=jb+1;jbh<8;jbh++){
+                                    res[ib][jbh]=stats.n;
+                                }
+                            }else if(ib==i){//righ or left
+                                for(int ibh=ib+1;ibh<8;ibh++){
+                                    res[ibh][jb]=stats.n;
+                                }
                             }else if(ib-i==jb-j){//righ-down
 
                             }else if(i-ib==jb-j){//left-down
