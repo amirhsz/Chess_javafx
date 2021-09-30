@@ -19,28 +19,44 @@ public class King extends pieces {
     }
 
     @Override
-    public boolean[][] where(){
-        boolean res[][] = (boolean[][])Array.newInstance(boolean.class,8,8);
-        for(int ib = 0 ; ib<8 ; ib++){
-            if(ib == i || ib == i-1 || ib == i+1){
-                for(int jb = 0 ; jb<8 ; jb++){
-                    if(jb == j-1 || jb == j+1 || (ib != i && jb == j)){
-                        res[ib][jb] = true;
+    public stats[][] where(pieces pic[]){
+        boolean isemp[][] = super.isemp(pic);
+        stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
+        for(int ib=i-1;ib<=i+1;ib++){
+            for(int jb=j-1;jb<=j+1;jb++){
+                if(ib>=0&&jb>=0&&!(ib==i&&jb==j)&&cango(ib,jb,pic)){
+                    if(isemp[ib][jb]){
+                        res[ib][jb]=stats.u;
                     }else{
-                        res[ib][jb] = false;
+                        res[ib][jb]=stats.k;
                     }
                 }
-            }else{
-                res[ib][0] = false;
-                res[ib][1] = false;
-                res[ib][2] = false;
-                res[ib][3] = false;
-                res[ib][4] = false;
-                res[ib][5] = false;
-                res[ib][6] = false;
-                res[ib][7] = false;
+            }
+        }
+        res=super.fill(res);
+        return res;
+    }
+
+    private boolean cango(int ib,int jb,pieces pic[]){
+        boolean res = true;// no king condition
+        int kings = 0;
+        for(int ibh=ib-1;ibh<=ib+1;ibh++){
+            for(int jbh=jb-1;jbh<=jb+1;jbh++){
+                for(pieces p:pic){
+                    if(p.getI()==ibh&&p.getJ()==jbh&&p.getType()==Type.k){
+                        kings++;
+                    }
+                }
+            }
+        }
+        res=kings<2;
+        //no one kick him condition
+        for(pieces p:pic){
+            if(p.where(pic)[ib][jb]==stats.u&&p.getColor()!=color){
+                res=false;
             }
         }
         return res;
     }
+
 }

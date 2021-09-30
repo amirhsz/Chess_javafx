@@ -51,7 +51,7 @@ public abstract class pieces {
         return color;
     }
 
-    public String[][] buts(){
+    private String[][] buts(){
         String but[][] = (String[][])Array.newInstance(String.class,8,8);
         for(int ib = 0 ; ib <8 ; ib++){
             for(int jb = 0 ; jb <8 ; jb++){
@@ -61,7 +61,37 @@ public abstract class pieces {
         return but;
     }
 
-    public boolean[][] where(){
+    protected boolean[][] isemp(pieces pic[]){
+        String but[][] = buts();
+        boolean res[][] = (boolean[][]) Array.newInstance(boolean.class,8,8);
+        for(int ib = 0 ; ib <8 ; ib++){
+            for(int jb = 0 ; jb <8 ; jb++){
+                for(pieces p:pic){
+                    if(p.getButid().equals(but[ib][jb])){
+                        res[ib][jb] = false;
+                    }else{
+                        res[ib][jb] = true;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    protected stats[][] fill(stats[][] res){
+        stats changed[][] = (stats[][])Array.newInstance(stats.class,8,8);
+        for(int ib = 0; ib<8;ib++){
+            for(int jb = 0; jb<8;jb++){
+                if(res[ib][jb]==null)changed[ib][jb]=stats.n;
+                else{
+                    changed[ib][jb]=res[ib][jb];
+                }
+            }
+        }
+        return changed;
+    }
+
+    public stats[][] where(pieces pic[]){
         return null;
     }
 
