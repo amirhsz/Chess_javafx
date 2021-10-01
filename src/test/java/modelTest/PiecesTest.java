@@ -127,6 +127,7 @@ public class PiecesTest {
     }
 
     @Test
+    @Ignore
     public void rooktest(){
         Rook rook = new Rook("4,3",Color.b);
         
@@ -185,4 +186,45 @@ public class PiecesTest {
         
     }
 
+    @Test
+    public void pawntest(){
+        Pawn pawn1 = new Pawn("4,3",Color.b);
+        Pawn pawn2 = new Pawn("4,3",Color.w);
+        
+        
+        pieces pic[]={
+        new Pawn("4,3",Color.b),
+        new Pawn("5,3",Color.b),
+        new Pawn("3,2",Color.w),
+        new Pawn("5,4",Color.b),
+        new Pawn("5,2",Color.w)
+        };
+        
+        
+        stats res1[][]={
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.k,stats.u,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n}
+        };
+        stats res2[][]={
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.k,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n}
+        };
+        
+        
+        assertArrayEquals("test 1 not passed(pawn)",pawn1.where(pic),res1);
+        assertArrayEquals("test 2 not passed(pawn)",pawn2.where(pic),res2);
+        
+    }
 }
