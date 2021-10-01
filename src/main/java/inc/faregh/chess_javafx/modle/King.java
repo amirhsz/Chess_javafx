@@ -20,15 +20,19 @@ public class King extends pieces {
 
     @Override
     public stats[][] where(pieces pic[]){
-        boolean isemp[][] = super.isemp(pic);
+        boolean isemp[][][] = super.isemp(pic);
         stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
         for(int ib=i-1;ib<=i+1;ib++){
             for(int jb=j-1;jb<=j+1;jb++){
                 if(ib>=0&&jb>=0&&ib<=7&&jb<=7&&!(ib==i&&jb==j)&&cango(ib,jb,pic)){
-                    if(isemp[ib][jb]){
+                    if(isemp[ib][jb][0]){
                         res[ib][jb]=stats.u;
                     }else{
-                        res[ib][jb]=stats.k;
+                        if(isemp[ib][jb][1]){
+                            res[ib][jb]=stats.k;
+                        }else{
+                            res[ib][jb]=stats.n;
+                        }
                     }
                 }
             }

@@ -20,6 +20,7 @@ public class PiecesTest {
     
 
     @Test
+    @Ignore
     public void queenTest(){
         Queen queen1 = new Queen("0,0",Color.b);
         Queen queen2 = new Queen("4,3",Color.b);
@@ -126,106 +127,61 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void rooktest(){
-        Rook rook1 = new Rook("0,0",Color.b);
-        Rook rook2 = new Rook("4,3",Color.b);
-        Rook rook3 = new Rook("1,7",Color.b);
+        Rook rook = new Rook("4,3",Color.b);
         
         
-        pieces pic[] = {new Rook("0,0",Color.b),
-        new Rook("1,7",Color.b),
-        new Rook("4,3",Color.b)
+        pieces pic[] = {
+        new Rook("4,3",Color.b),
+        new Rook("2,3",Color.w),
+        new Rook("6,3",Color.w),
+        new Rook("4,1",Color.w),
+        new Rook("4,5",Color.w),
         };
         
         
-        stats res1[][]={
-        {stats.n,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        };
-        stats res2[][]={
+        stats res[][]={
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.k,stats.n,stats.n,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.k,stats.u,stats.n,stats.u,stats.k,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.u,stats.u,stats.u,stats.n,stats.u,stats.u,stats.u,stats.u},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        };
-        stats res3[][]={
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
+        {stats.n,stats.n,stats.n,stats.k,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         };
         
         
-        assertArrayEquals("test 1 not passed(rook)",rook1.where(pic),res1);
-        assertArrayEquals("test 2 not passed(rook)",rook2.where(pic),res2);
-        assertArrayEquals("test 3 not passed(rook)",rook3.where(pic),res3);
+        assertArrayEquals("test 1 not passed(rook)",rook.where(pic),res);
         
     }
 
     @Test
     @Ignore
     public void bishoptest(){
-        Bishop bishop1 = new Bishop("0,0",Color.b);
-        Bishop bishop2 = new Bishop("4,3",Color.b);
-        Bishop bishop3 = new Bishop("1,7",Color.b);
+        Bishop bishop = new Bishop("4,3",Color.b);
         
         
-        pieces pic[] = {new Bishop("0,0",Color.b),
-        new Bishop("1,7",Color.b),
-        new Bishop("4,3",Color.b)
+        pieces pic[] = {
+        new Bishop("4,3",Color.b),
+        new Bishop("3,2",Color.b),
+        new Bishop("3,4",Color.b),
+        new Bishop("6,1",Color.b),
+        new Bishop("6,5",Color.b)
         };
-        
-        
-        stats res1[][]={
+        stats res[][]={
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        };
-        stats res2[][]={
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.u,stats.u,stats.n,stats.u,stats.u,stats.u,stats.u},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
-        };
-        stats res3[][]={
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.u,stats.n},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
-        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.k,stats.n,stats.k,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.u,stats.n,stats.u,stats.n,stats.n,stats.n},
+        {stats.n,stats.k,stats.n,stats.n,stats.n,stats.k,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         };
         
         
-        assertArrayEquals("test 1 not passed(bishop)",bishop1.where(pic),res1);
-        assertArrayEquals("test 2 not passed(bishop)",bishop2.where(pic),res2);
-        assertArrayEquals("test 3 not passed(bishop)",bishop3.where(pic),res3);
+        assertArrayEquals("test not passed(bishop)",bishop.where(pic),res);
         
     }
 

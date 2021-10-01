@@ -61,17 +61,16 @@ public abstract class pieces {
         return but;
     }
 
-    protected boolean[][] isemp(pieces pic[]){
+    protected boolean[][][] isemp(pieces pic[]){
         String but[][] = buts();
-        boolean res[][] = (boolean[][]) Array.newInstance(boolean.class,8,8);
+        boolean res[][][] = (boolean[][][]) Array.newInstance(boolean.class,8,8,2);
         for(int ib = 0 ; ib <8 ; ib++){
             for(int jb = 0 ; jb <8 ; jb++){
-                for(pieces p:pic){
-                    if(p.getButid().equals(but[ib][jb])){
-                        res[ib][jb] = false;
+                for (pieces p : pic) {
+                    res[ib][jb][0] = !p.getButid().equals(but[ib][jb]);
+                    res[ib][jb][1] = p.getColor() != color;
+                    if(!res[ib][jb][0]){
                         break;
-                    }else{
-                        res[ib][jb] = true;
                     }
                 }
             }
