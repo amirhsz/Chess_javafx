@@ -1,12 +1,9 @@
-#play {
-    
-}
-#setting{
-    
-}
-#about_us{
-    
-}
-#props{
-    
-}
+ #AnchorPane
+ {
+     
+ }
+.button
+ {
+     -fx-background-color: #974007;
+     -fx-background-image: url(../images/download.png);
+ }
