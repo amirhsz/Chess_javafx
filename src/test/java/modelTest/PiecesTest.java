@@ -187,6 +187,7 @@ public class PiecesTest {
     }
 
     @Test
+    @Ignore
     public void pawntest(){
         Pawn pawn1 = new Pawn("4,3",Color.b);
         Pawn pawn2 = new Pawn("4,3",Color.w);
@@ -227,4 +228,47 @@ public class PiecesTest {
         assertArrayEquals("test 2 not passed(pawn)",pawn2.where(pic),res2);
         
     }
+
+    @Test
+    public void knighttest(){
+        Knigh knigh1 = new Knigh("0,0",Color.b);
+        Knigh knigh2 = new Knigh("4,3",Color.b);
+        
+        
+        pieces pic[]={
+            new Knigh("0,0",Color.b),
+            new Knigh("4,3",Color.b),
+            new Knigh("1,2",Color.w),
+            new Knigh("6,2",Color.b),
+            new Knigh("3,5",Color.w),
+        };
+        
+        
+        stats res1[][]={
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.k,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.u,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        };
+        stats res2[][]={
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.u,stats.n,stats.u,stats.n,stats.n,stats.n},
+            {stats.n,stats.u,stats.n,stats.n,stats.n,stats.k,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.u,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        };
+        
+        
+        assertArrayEquals("test 1 not passed(knigh)",knigh1.where(pic),res1);
+        assertArrayEquals("test 2 not passed(knigh)",knigh2.where(pic),res2);
+        
+    }
+
 }

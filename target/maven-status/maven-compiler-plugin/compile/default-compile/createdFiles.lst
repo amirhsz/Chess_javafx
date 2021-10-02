@@ -1,6 +1,7 @@
 inc\faregh\chess_javafx\modle\Rook.class
 inc\faregh\chess_javafx\controll\SettingController.class
 inc\faregh\chess_javafx\modle\Type.class
+inc\faregh\chess_javafx\modle\Knigh.class
 inc\faregh\chess_javafx\modle\Pawn.class
 inc\faregh\chess_javafx\modle\App.class
 inc\faregh\chess_javafx\modle\Bishop.class
