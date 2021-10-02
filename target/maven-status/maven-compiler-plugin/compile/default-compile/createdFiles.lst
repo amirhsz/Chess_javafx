@@ -1,8 +1,14 @@
+inc\faregh\chess_javafx\modle\Rook.class
 inc\faregh\chess_javafx\controll\SettingController.class
 inc\faregh\chess_javafx\modle\Type.class
+inc\faregh\chess_javafx\modle\Knigh.class
+inc\faregh\chess_javafx\modle\Pawn.class
 inc\faregh\chess_javafx\modle\App.class
+inc\faregh\chess_javafx\modle\Bishop.class
 inc\faregh\chess_javafx\modle\pieces.class
 inc\faregh\chess_javafx\controll\MainController.class
 inc\faregh\chess_javafx\modle\King.class
 inc\faregh\chess_javafx\controll\PlayController.class
+inc\faregh\chess_javafx\modle\Queen.class
 inc\faregh\chess_javafx\modle\Color.class
+inc\faregh\chess_javafx\modle\stats.class

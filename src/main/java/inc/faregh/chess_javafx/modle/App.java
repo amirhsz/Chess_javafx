@@ -1,5 +1,6 @@
 package inc.faregh.chess_javafx.modle;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.stage.Stage;
 
 
 public class App extends Application {
+
+    public static ArrayList<pieces> pieces = new ArrayList();
 
     @Override
     public void start(Stage stage) throws Exception {

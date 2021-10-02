@@ -5,7 +5,8 @@
  */
 package inc.faregh.chess_javafx.modle;
 
-import javafx.scene.image.Image;
+import java.lang.reflect.Array;
+
 
 /**
  *
@@ -16,8 +17,7 @@ public abstract class pieces {
     protected Type type;
     protected Color color;
     protected int i,j;
-    protected Image image;
-    public pieces(String butid, Type type, Color color) {
+    protected pieces(String butid, Type type, Color color) {
         this.butid = butid;
         i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
         j = Integer.parseInt(this.butid.substring(this.butid.indexOf(",")+1));
@@ -27,6 +27,14 @@ public abstract class pieces {
 
     public String getButid() {
         return butid;
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public int getJ() {
+        return j;
     }
 
     public void setButid(String butid) {
@@ -41,6 +49,50 @@ public abstract class pieces {
 
     public Color getColor() {
         return color;
+    }
+
+    private String[][] buts(){
+        String but[][] = (String[][])Array.newInstance(String.class,8,8);
+        for(int ib = 0 ; ib <8 ; ib++){
+            for(int jb = 0 ; jb <8 ; jb++){
+                but[ib][jb] = Integer.toString(ib)+","+Integer.toString(jb);
+            }
+        }
+        return but;
+    }
+
+    protected boolean[][][] isemp(pieces pic[]){
+        String but[][] = buts();
+        boolean res[][][] = (boolean[][][]) Array.newInstance(boolean.class,8,8,2);
+        for(int ib = 0 ; ib <8 ; ib++){
+            for(int jb = 0 ; jb <8 ; jb++){
+                for (pieces p : pic) {
+                    res[ib][jb][0] = !p.getButid().equals(but[ib][jb]);
+                    if(!res[ib][jb][0]){
+                        res[ib][jb][1] = p.getColor() != color;
+                        break;
+                    }
+                }
+            }
+        }
+        return res;
+    }
+
+    protected stats[][] fill(stats[][] res){
+        stats changed[][] = (stats[][])Array.newInstance(stats.class,8,8);
+        for(int ib = 0; ib<8;ib++){
+            for(int jb = 0; jb<8;jb++){
+                if(res[ib][jb]==null)changed[ib][jb]=stats.n;
+                else{
+                    changed[ib][jb]=res[ib][jb];
+                }
+            }
+        }
+        return changed;
+    }
+
+    public stats[][] where(pieces pic[]){
+        return null;
     }
 
 }

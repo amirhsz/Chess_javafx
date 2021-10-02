@@ -9,11 +9,8 @@ package inc.faregh.chess_javafx.modle;
  *
  * @author Amir
  */
-public enum Type {
-     k       //king(شاه)
-    ,q      //queen(وزیر)
-    ,r      //rook(رخ)
-    ,b      //bishop(فیل)
-    ,n      //knigh(اسب)
-    ,p      //pawn(سرباز)
+public enum stats {
+     u      //usual
+    ,n      //no cant
+    ,k      //kick
 }
