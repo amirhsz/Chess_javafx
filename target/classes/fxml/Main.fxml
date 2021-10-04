@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="367.0" prefWidth="334.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inc.faregh.chess_javafx.controll.MainController">
+<AnchorPane id="AnchorPane" prefHeight="367.0" prefWidth="334.0" stylesheets="@../styles/Main.css" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="inc.faregh.chess_javafx.controll.MainController">
     <children>
         <VBox alignment="CENTER" layoutX="117.0" layoutY="113.0" prefHeight="147.0" prefWidth="103.0" spacing="15" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="116.0" AnchorPane.topAnchor="113.0">
             <children>

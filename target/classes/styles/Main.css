@@ -5,5 +5,5 @@
 .button
  {
      -fx-background-color: #974007;
-     -fx-background-image: url(../images/download.png);
+     //-fx-background-image: url(../images/download.png);
  }
