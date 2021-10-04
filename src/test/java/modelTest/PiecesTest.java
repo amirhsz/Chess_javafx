@@ -15,12 +15,12 @@ import static org.junit.Assert.assertArrayEquals;
  *
  * @author Amir
  */
+@Ignore
 public class PiecesTest {
 
     
 
     @Test
-    @Ignore
     public void queenTest(){
         Queen queen1 = new Queen("0,0",Color.b);
         Queen queen2 = new Queen("4,3",Color.b);
@@ -73,7 +73,6 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void kingtest(){
         King king1 = new King("0,0",Color.b);
         King king2 = new King("4,3",Color.b);
@@ -127,7 +126,6 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void rooktest(){
         Rook rook = new Rook("4,3",Color.b);
         
@@ -158,7 +156,6 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void bishoptest(){
         Bishop bishop = new Bishop("4,3",Color.b);
         
@@ -187,7 +184,6 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void pawntest(){
         Pawn pawn1 = new Pawn("4,3",Color.b);
         Pawn pawn2 = new Pawn("4,3",Color.w);
