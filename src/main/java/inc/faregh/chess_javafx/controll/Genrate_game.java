@@ -30,10 +30,14 @@ public class Genrate_game {
 
     public void saveaction(ActionEvent e){
         try{
-            FileWriter config = new FileWriter(this.getClass().getResource("").getPath()+".config");
+            System.out.println(this.getClass().getResource("/fxml"));
+            FileWriter config = new FileWriter("F:\\Projects\\java\\Projects\\Chess_javafx");
             config.write("hi");
+            config.flush();
+            config.close();
+            System.out.println("finished");
         }catch(IOException ex){
-            System.out.println(ex.getMessage());
+            System.out.println("Error"+ex.getMessage());
         }
     }
     public void initialize() {
