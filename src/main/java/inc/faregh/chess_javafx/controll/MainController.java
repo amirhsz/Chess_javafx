@@ -10,15 +10,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class MainController{
+
     @FXML
     private void PlayButtonAction(ActionEvent event) throws IOException {
-        Parent play = FXMLLoader.load(getClass().getResource("/fxml/Play.fxml"));
+        Parent play = FXMLLoader.load(getClass().getResource("/fxml/Genrate_game.fxml"));
         Stage playstg = new Stage();
         playstg.setScene(new Scene(play));
         playstg.setTitle("Play");
         playstg.show();
         hide(event);
     }
+
     @FXML
     private void SettingButtonAction(ActionEvent event) throws IOException {
         Parent setting = FXMLLoader.load(getClass().getResource("/fxml/Setting.fxml"));
@@ -28,6 +30,7 @@ public class MainController{
         settingstg.show();
         hide(event);
     }
+
     @FXML
     private void AboutusButtonAction(ActionEvent event) throws IOException {
         Parent aboutus = FXMLLoader.load(getClass().getResource("/fxml/About_us.fxml"));
@@ -37,8 +40,10 @@ public class MainController{
         aboutusstg.show();
         hide(event);
     }
+
     private void hide(ActionEvent e){
         Node here = (Node) e.getSource();
         here.getScene().getWindow().hide();
     }
+
 }

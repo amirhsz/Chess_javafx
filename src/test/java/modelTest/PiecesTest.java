@@ -226,6 +226,7 @@ public class PiecesTest {
     }
 
     @Test
+    @Ignore
     public void knighttest(){
         Knight knigh1 = new Knight("0,0",Color.b);
         Knight knigh2 = new Knight("4,3",Color.b);
