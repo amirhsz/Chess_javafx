@@ -10,6 +10,15 @@ package inc.faregh.chess_javafx.modle;
  * @author Amir
  */
 public enum Color {
-    w       //white
-    ,b      //black
+
+    /**
+     * color white
+     */
+    w
+    ,
+
+    /**
+     * color black
+     */
+    b
 }

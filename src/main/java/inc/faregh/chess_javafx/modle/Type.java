@@ -10,10 +10,39 @@ package inc.faregh.chess_javafx.modle;
  * @author Amir
  */
 public enum Type {
-     k       //king(شاه)
-    ,q      //queen(وزیر)
-    ,r      //rook(رخ)
-    ,b      //bishop(فیل)
-    ,n      //knigh(اسب)
-    ,p      //pawn(سرباز)
+
+    /**
+     * king(شاه)
+     */
+    k
+    ,
+
+    /**
+     * queen(وزیر)
+     */
+    q
+    ,
+
+    /**
+     * rook(رخ)
+     */
+    r
+    ,
+
+    /**
+     * bishop(فیل)
+     */
+    b
+    ,
+
+    /**
+     * knight(اسب)
+     */
+    n
+    ,
+
+    /**
+     * pawn(سرباز)
+     */
+    p
 }

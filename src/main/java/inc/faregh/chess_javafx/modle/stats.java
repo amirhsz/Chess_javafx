@@ -10,7 +10,21 @@ package inc.faregh.chess_javafx.modle;
  * @author Amir
  */
 public enum stats {
-     u      //usual
-    ,n      //no cant
-    ,k      //kick
+
+    /**
+     * usual
+     */
+    u
+    ,
+
+    /**
+     * can not go
+     */
+    n
+    ,
+
+    /**
+     * kick
+     */
+    k
 }

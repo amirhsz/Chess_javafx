@@ -13,10 +13,38 @@ import java.lang.reflect.Array;
  * @author Amir
  */
 public abstract class pieces {
+
+    /**
+     * our button id
+     */
     protected String butid;
+
+    /**
+     * our piece type
+     */
     protected Type type;
+
+    /**
+     * our piece color
+     */
     protected Color color;
-    protected int i,j;
+    
+    /**
+     * our row of button
+     */
+    protected int i;
+
+    /**
+     *our column of button
+     */
+    protected int j;
+
+    /**
+     *
+     * @param butid our button id
+     * @param type our piece type
+     * @param color our piece color
+     */
     protected pieces(String butid, Type type, Color color) {
         this.butid = butid;
         i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
@@ -25,28 +53,52 @@ public abstract class pieces {
         this.color = color;
     }
 
+    /**
+     *
+     * @return our button that we are there id
+     */
     public String getButid() {
         return butid;
     }
 
+    /**
+     *
+     * @return our row in the game board
+     */
     public int getI() {
         return i;
     }
 
+    /**
+     *
+     * @return our column in the game board
+     */
     public int getJ() {
         return j;
     }
 
+    /**
+     *
+     * @param butid id of our button
+     */
     public void setButid(String butid) {
         this.butid = butid;
         i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
         j = Integer.parseInt(this.butid.substring(this.butid.indexOf(",")+1));
     }
 
+    /**
+     *
+     * @return our piece type
+     */
     public Type getType() {
         return type;
     }
 
+    /**
+     *
+     * @return our piece color
+     */
     public Color getColor() {
         return color;
     }
@@ -61,6 +113,11 @@ public abstract class pieces {
         return but;
     }
 
+    /**
+     *
+     * @param pic our board state
+     * @return where are empty
+     */
     protected boolean[][][] isemp(pieces pic[]){
         String but[][] = buts();
         boolean res[][][] = (boolean[][][]) Array.newInstance(boolean.class,8,8,2);
@@ -78,6 +135,11 @@ public abstract class pieces {
         return res;
     }
 
+    /**
+     *
+     * @param res the array that we want to fill it
+     * @return all of null on the board to no where
+     */
     protected stats[][] fill(stats[][] res){
         stats changed[][] = (stats[][])Array.newInstance(stats.class,8,8);
         for(int ib = 0; ib<8;ib++){
@@ -91,6 +153,11 @@ public abstract class pieces {
         return changed;
     }
 
+    /**
+     *
+     * @param pic our board
+     * @return we should implement this method in all of sub classes and return where can we go
+     */
     public stats[][] where(pieces pic[]){
         return null;
     }

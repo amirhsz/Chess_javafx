@@ -227,16 +227,16 @@ public class PiecesTest {
 
     @Test
     public void knighttest(){
-        Knigh knigh1 = new Knigh("0,0",Color.b);
-        Knigh knigh2 = new Knigh("4,3",Color.b);
+        Knight knigh1 = new Knight("0,0",Color.b);
+        Knight knigh2 = new Knight("4,3",Color.b);
         
         
         pieces pic[]={
-            new Knigh("0,0",Color.b),
-            new Knigh("4,3",Color.b),
-            new Knigh("1,2",Color.w),
-            new Knigh("6,2",Color.b),
-            new Knigh("3,5",Color.w),
+            new Knight("0,0",Color.b),
+            new Knight("4,3",Color.b),
+            new Knight("1,2",Color.w),
+            new Knight("6,2",Color.b),
+            new Knight("3,5",Color.w),
         };
         
         

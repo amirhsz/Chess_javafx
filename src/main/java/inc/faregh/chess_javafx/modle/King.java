@@ -13,11 +13,20 @@ import java.lang.reflect.Array;
  */
 public class King extends pieces {
     
-
+    /**
+     *
+     * @param butid our button id
+     * @param color our piece color
+     */
     public King(String butid, Color color) {
         super(butid, Type.k, color);
     }
 
+    /**
+     *
+     * @param pic our board
+     * @return where can we go
+     */
     @Override
     public stats[][] where(pieces pic[]){
         boolean isemp[][][] = super.isemp(pic);

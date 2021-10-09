@@ -11,12 +11,22 @@ import java.lang.reflect.Array;
  *
  * @author Amir
  */
-public class Knigh extends pieces {
+public class Knight extends pieces {
 
-    public Knigh(String butid, Color color) {
+    /**
+     *
+     * @param butid our button id
+     * @param color our piece color
+     */
+    public Knight(String butid, Color color) {
         super(butid, Type.n, color);
     }
 
+    /**
+     *
+     * @param pic our board
+     * @return where can we go
+     */
     @Override
     public stats[][] where(pieces pic[]){
         boolean isemp[][][] = super.isemp(pic);

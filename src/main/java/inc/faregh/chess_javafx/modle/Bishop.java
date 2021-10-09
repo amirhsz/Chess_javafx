@@ -13,10 +13,20 @@ import java.lang.reflect.Array;
  */
 public class Bishop extends pieces {
 
+    /**
+     *
+     * @param butid our button id
+     * @param color our piece color
+     */
     public Bishop(String butid, Color color) {
         super(butid, Type.b, color);
     }
 
+    /**
+     *
+     * @param pic our board
+     * @return where can we go
+     */
     @Override
     public stats[][] where(pieces pic[]){
         boolean isemp[][][] = super.isemp(pic);

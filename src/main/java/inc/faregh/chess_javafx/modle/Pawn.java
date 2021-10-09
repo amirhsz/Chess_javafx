@@ -13,10 +13,20 @@ import java.lang.reflect.Array;
  */
 public class Pawn extends pieces {
 
+    /**
+     *
+     * @param butid our button id
+     * @param color our piece color
+     */
     public Pawn(String butid, Color color) {
         super(butid, Type.p, color);
     }
 
+    /**
+     *
+     * @param pic our board
+     * @return where can we go
+     */
     @Override 
     public stats[][] where(pieces pic[]){
         boolean isemp[][][] = super.isemp(pic);

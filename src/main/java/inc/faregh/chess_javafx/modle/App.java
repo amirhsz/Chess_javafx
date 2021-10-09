@@ -8,9 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
+/**
+ *
+ * @author Amir
+ */
 public class App extends Application {
 
+    /**
+     *our pieces in game
+     */
     public static ArrayList<pieces> pieces = new ArrayList();
 
     @Override
