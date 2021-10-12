@@ -15,7 +15,6 @@ import static org.junit.Assert.assertArrayEquals;
  *
  * @author Amir
  */
-@Ignore
 public class PiecesTest {
 
     
@@ -31,9 +30,9 @@ public class PiecesTest {
         new Queen("0,0",Color.b),
         new Queen("1,7",Color.b),
         new Queen("4,3",Color.b),
-        new Queen("0,3",Color.b),
-        new Queen("3,0",Color.b),
-        new Queen("3,3",Color.b)
+        new Queen("0,3",Color.w),
+        new Queen("3,0",Color.w),
+        new Queen("3,3",Color.w)
         };
         
         
@@ -162,10 +161,10 @@ public class PiecesTest {
         
         pieces pic[] = {
         new Bishop("4,3",Color.b),
-        new Bishop("3,2",Color.b),
-        new Bishop("3,4",Color.b),
-        new Bishop("6,1",Color.b),
-        new Bishop("6,5",Color.b)
+        new Bishop("3,2",Color.w),
+        new Bishop("3,4",Color.w),
+        new Bishop("6,1",Color.w),
+        new Bishop("6,5",Color.w)
         };
         stats res[][]={
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
@@ -226,7 +225,6 @@ public class PiecesTest {
     }
 
     @Test
-    @Ignore
     public void knighttest(){
         Knight knigh1 = new Knight("0,0",Color.b);
         Knight knigh2 = new Knight("4,3",Color.b);

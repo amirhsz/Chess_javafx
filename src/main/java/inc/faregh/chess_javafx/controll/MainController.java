@@ -41,7 +41,7 @@ public class MainController{
         hide(event);
     }
 
-    private void hide(ActionEvent e){
+    public static void hide(ActionEvent e){
         Node here = (Node) e.getSource();
         here.getScene().getWindow().hide();
     }

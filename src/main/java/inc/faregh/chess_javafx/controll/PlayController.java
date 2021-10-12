@@ -5,38 +5,52 @@
  */
 package inc.faregh.chess_javafx.controll;
 
+import inc.faregh.chess_javafx.modle.stats;
+import java.lang.reflect.Array;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author Amir
  */
-public class PlayController implements Initializable {
+public class PlayController{
 
-    @FXML 
-    private Button btns[][];
-    
+    private Button btns[][]=(Button[][]) Array.newInstance((Button.class),8,8);
+
+    @FXML
+    private VBox board;
+
     @FXML
     private void action(ActionEvent e){
         
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    @FXML
+    public void initialize(){
+        HBox boardhirozental[] = {new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox()}; 
         for(int i = 0 ; i<7 ; i++){
+            boardhirozental[i].setPrefHeight(Integer.MAX_VALUE);
             for(int j = 0 ; j<7 ; j++){
-                Button now = new Button();
-                now.setId(Integer.toString(i)+","+Integer.toString(j));
-                now.setOnAction(e->{
+                Button here = new Button();
+                here.setPrefSize(Integer.MAX_VALUE,Integer.MAX_VALUE);
+                here.setId(Integer.toString(i)+","+Integer.toString(j));
+                here.setOnAction(e->{
                     action(e);
                 });
-                btns[i][j] = now;
+                btns[i][j]=here;
+                boardhirozental[i].getChildren().add(here);
+                
             }
+            board.getChildren().add(boardhirozental[i]);
         }
     }
+
 }
