@@ -5,14 +5,11 @@
  */
 package inc.faregh.chess_javafx.controll;
 
-import inc.faregh.chess_javafx.modle.stats;
+import inc.faregh.chess_javafx.modle.*;
+import static inc.faregh.chess_javafx.modle.App.pieces;
 import java.lang.reflect.Array;
-import java.net.URL;
-import java.util.Arrays;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -30,7 +27,8 @@ public class PlayController{
 
     @FXML
     private void action(ActionEvent e){
-        
+        Button click = (Button)e.getSource();
+        System.out.println(click.getId());
     }
 
     @FXML
@@ -41,16 +39,19 @@ public class PlayController{
             for(int j = 0 ; j<7 ; j++){
                 Button here = new Button();
                 here.setPrefSize(Integer.MAX_VALUE,Integer.MAX_VALUE);
-                here.setId(Integer.toString(i)+","+Integer.toString(j));
+                here.setId(setid(i,j));
                 here.setOnAction(e->{
                     action(e);
                 });
                 btns[i][j]=here;
                 boardhirozental[i].getChildren().add(here);
-                
             }
             board.getChildren().add(boardhirozental[i]);
         }
+    }
+
+    private String setid(int i, int j){
+        return Integer.toString(i)+","+Integer.toString(j);
     }
 
 }
