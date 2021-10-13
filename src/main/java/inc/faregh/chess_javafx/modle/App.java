@@ -39,7 +39,6 @@ public class App extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        launch(args);
         for(int i = 0 ; i<7 ; i++){
             for(int j = 0 ; j<7 ; j++){
                 String id = Integer.toString(i)+","+Integer.toString(j);
@@ -47,7 +46,6 @@ public class App extends Application {
                 if(i<2||i>4){
                     if(i<2){
                         c = Color.w;
-
                     }else if(i>4){
                         c = Color.b;
                     }
@@ -63,16 +61,26 @@ public class App extends Application {
                         if(j==2 || j==4){
                             pieces.put(id, new Bishop(id,c));
                         }
-                        if(j==3){
-                            pieces.put(id, new Queen(id,c));
-                        }
-                        if(j==4){
-                            pieces.put(id, new King(id,c));
+                        if(j==3||j==4){
+                            if(c==Color.b){
+                                if(j==4){
+                                    pieces.put(id, new Queen(id,c));
+                                }else{
+                                    pieces.put(id, new King(id,c));
+                                }
+                            }else{
+                                if(j==3){
+                                    pieces.put(id, new Queen(id,c));
+                                }else{
+                                    pieces.put(id, new King(id,c));
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+        launch(args);
     }
 
 }

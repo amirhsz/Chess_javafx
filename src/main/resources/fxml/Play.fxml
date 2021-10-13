@@ -36,7 +36,7 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <VBox id="board" fx:id="board" layoutX="30.0" layoutY="63.0" prefHeight="340.0" prefWidth="327.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="45.0" />
+      <VBox id="board" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:id="board" layoutX="30.0" layoutY="63.0" prefHeight="340.0" prefWidth="327.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="45.0" />
       <TableView id="history" layoutX="365.0" layoutY="54.0" prefHeight="325.0" prefWidth="187.0" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="45.0">
         <columns>
             <TableColumn prefWidth="36.0" text="Num" />

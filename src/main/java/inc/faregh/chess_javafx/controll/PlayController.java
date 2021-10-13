@@ -5,7 +5,6 @@
  */
 package inc.faregh.chess_javafx.controll;
 
-import inc.faregh.chess_javafx.modle.*;
 import static inc.faregh.chess_javafx.modle.App.pieces;
 import java.lang.reflect.Array;
 import javafx.event.ActionEvent;
@@ -28,25 +27,34 @@ public class PlayController{
     @FXML
     private void action(ActionEvent e){
         Button click = (Button)e.getSource();
-        System.out.println(click.getId());
+        System.out.println(pieces.get(click.getId()));
     }
 
     @FXML
     public void initialize(){
         HBox boardhirozental[] = {new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox()}; 
         for(int i = 0 ; i<7 ; i++){
-            boardhirozental[i].setPrefHeight(Integer.MAX_VALUE);
+            boardhirozental[i].setPrefSize(board.getPrefWidth(),board.getPrefHeight()/8);
             for(int j = 0 ; j<7 ; j++){
                 Button here = new Button();
-                here.setPrefSize(Integer.MAX_VALUE,Integer.MAX_VALUE);
+                here.setPrefSize(boardhirozental[i].getPrefWidth(),boardhirozental[i].getPrefHeight());
                 here.setId(setid(i,j));
                 here.setOnAction(e->{
                     action(e);
                 });
-                btns[i][j]=here;
                 boardhirozental[i].getChildren().add(here);
+                btns[i][j]=here;
             }
             board.getChildren().add(boardhirozental[i]);
+        }
+        for(int i = 0 ; i<7 ; i++){
+            for(int j = 0 ; j<7 ; j++){
+                if(pieces.get(setid(i,j))!=null){
+                    try {
+                        pieces.get(setid(i,j)).seticon(btns[i][j]);
+                    } catch (Exception ex) {System.out.println(ex.getMessage());}
+                }
+            }
         }
     }
 
