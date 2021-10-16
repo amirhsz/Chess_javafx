@@ -228,6 +228,7 @@ public class PiecesTest {
     public void knighttest(){
         Knight knigh1 = new Knight("0,0",Color.b);
         Knight knigh2 = new Knight("4,3",Color.b);
+        Knight knight3 = new Knight("0,6",Color.w);
         
         
         pieces pic[]={
@@ -236,6 +237,7 @@ public class PiecesTest {
             new Knight("1,2",Color.w),
             new Knight("6,2",Color.b),
             new Knight("3,5",Color.w),
+            new Knight("1,4",Color.w)
         };
         
         
@@ -259,11 +261,21 @@ public class PiecesTest {
             {stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
             {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         };
+        stats res3[][]={
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.u},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+            {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        };
         
         
         assertArrayEquals("test 1 not passed(knigh)",knigh1.where(pic),res1);
         assertArrayEquals("test 2 not passed(knigh)",knigh2.where(pic),res2);
-        
+        assertArrayEquals("test 3 not passed(knigh)",knight3.where(pic),res3);
     }
 
 }

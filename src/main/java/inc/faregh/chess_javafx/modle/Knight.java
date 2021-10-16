@@ -33,7 +33,7 @@ public class Knight extends pieces {
         stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
         for(int ib = i-3 ; ib<=i+3 ; ib++){
             for(int jb = j-3 ; jb<=j+3 ; jb++){
-                if(jb>=0&&ib>=0&&res[ib][jb]==null){
+                if(jb>=0&&ib>=0&&ib<=7&&jb<=7&&res[ib][jb]==null){
                     if(((Math.abs(i-ib)==2&&Math.abs(j-jb)==1)||(Math.abs(i-ib)==1&&Math.abs(j-jb)==2))){
                         if(isemp[ib][jb][0]){
                             res[ib][jb]=stats.u;

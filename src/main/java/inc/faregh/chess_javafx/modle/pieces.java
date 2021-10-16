@@ -5,17 +5,7 @@
  */
 package inc.faregh.chess_javafx.modle;
 
-import java.io.File;
-import java.io.IOException;
 import java.lang.reflect.Array;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javax.imageio.ImageIO;
 
 
 /**
@@ -170,20 +160,6 @@ public abstract class pieces {
      */
     public stats[][] where(pieces pic[]){
         return null;
-    }
-
-    public void seticon(Button here) throws Exception{
-        if(here.getId().equals(butid)){
-            String path = "/images/"+color.toString()+"/"+type.toString()+".jpg";
-            String realpath = getClass().getResource(path).toExternalForm();
-            Image image = new Image(realpath,here.getPrefHeight(),here.getPrefWidth()
-            ,false,false);
-            BackgroundImage back = new BackgroundImage(image,BackgroundRepeat.NO_REPEAT,
-            BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT);
-            here.setBackground(new Background(back));
-        }else{
-            throw new Exception("thats not my button");
-        }
     }
 
     @Override

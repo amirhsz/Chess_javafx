@@ -31,25 +31,27 @@ public class Pawn extends pieces {
     public stats[][] where(pieces pic[]){
         boolean isemp[][][] = super.isemp(pic);
         stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
-        if(color==Color.b){
-            if(isemp[i-1][j][0]){
-                res[i-1][j]=stats.u;
-            }
-            if(isemp[i-1][j+1][1]){
-                res[i-1][j+1]=stats.k;
-            }
-            if(isemp[i-1][j-1][1]){
-                res[i-1][j-1]=stats.k;
-            }
-        }else{
-            if(isemp[i+1][j][0]){
-                res[i+1][j]=stats.u;
-            }
-            if(isemp[i+1][j+1][1]){
-                res[i+1][j+1]=stats.k;
-            }
-            if(isemp[i+1][j-1][1]){
-                res[i+1][j-1]=stats.k;
+        if((i!=0||i!=7)){
+            if(color==Color.b){
+                if(isemp[i-1][j][0]){
+                    res[i-1][j]=stats.u;
+                }
+                if(j!=7&&isemp[i-1][j+1][1]){
+                    res[i-1][j+1]=stats.k;
+                }
+                if(j!=0&&isemp[i-1][j-1][1]){
+                    res[i-1][j-1]=stats.k;
+                }
+            }else{
+                if(isemp[i+1][j][0]){
+                    res[i+1][j]=stats.u;
+                }
+                if(j!=7&&isemp[i+1][j+1][1]){
+                    res[i+1][j+1]=stats.k;
+                }
+                if(j!=0&&isemp[i+1][j-1][1]){
+                    res[i+1][j-1]=stats.k;
+                }
             }
         }
         res=super.fill(res);

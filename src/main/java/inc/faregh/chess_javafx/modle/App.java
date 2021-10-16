@@ -39,26 +39,26 @@ public class App extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        for(int i = 0 ; i<7 ; i++){
-            for(int j = 0 ; j<7 ; j++){
+        for(int i = 0 ; i<8 ; i++){
+            for(int j = 0 ; j<8 ; j++){
                 String id = Integer.toString(i)+","+Integer.toString(j);
                 Color c=null;
-                if(i<2||i>4){
+                if(i<2||i>5){
                     if(i<2){
                         c = Color.w;
-                    }else if(i>4){
+                    }else{
                         c = Color.b;
                     }
-                    if(i==1||i==5){
+                    if(i==1||i==6){
                             pieces.put(id, new Pawn(id,c));
                     }else{
-                        if(j==0||j==6){
+                        if(j==0||j==7){
                             pieces.put(id, new Rook(id,c));
                         }
-                        if(j==1 || j==5){
+                        if(j==1 || j==6){
                             pieces.put(id, new Knight(id,c));
                         }
-                        if(j==2 || j==4){
+                        if(j==2 || j==5){
                             pieces.put(id, new Bishop(id,c));
                         }
                         if(j==3||j==4){
