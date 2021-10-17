@@ -13,7 +13,6 @@ import inc.faregh.chess_javafx.modle.stats;
 import java.lang.reflect.Array;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
@@ -35,7 +34,10 @@ import javafx.scene.layout.VBox;
 public class PlayController{
 
     private Button btns[][]=(Button[][]) Array.newInstance((Button.class),8,8),select;
+
     private boolean isselected = false;
+
+    Color turn = Color.w;
 
     @FXML
     private VBox board;
@@ -45,11 +47,23 @@ public class PlayController{
         Button click = (Button) e.getSource();
         if(isselected){
             
-            //try{moveicon(select,click);}catch(Exception ex){}
+            try{
+                if(click.getBorder().getStrokes().get(0).getBottomStroke().
+                    equals(javafx.scene.paint.Color.YELLOW)||click.getBorder()
+                    .getStrokes().get(0).getBottomStroke().
+                    equals(javafx.scene.paint.Color.RED)){
+                moveicon(select,click);
+                if(turn==Color.b){
+                    turn = Color.w;
+                }else{
+                    turn = Color.b;
+                }
+                }
+            }catch(Exception ex){}
             for(Button row[]:btns){for(Button now:row){now.setBorder(Border.EMPTY);}}
             isselected = false;
         }else{
-            if(pieces.containsKey(click.getId())){
+            if(pieces.containsKey(click.getId())&&pieces.get(click.getId()).getColor()==turn){
                 pieces pic = pieces.get(click.getId());
                 sethere(click);
                 for(int i = 0 ; i<8 ; i++){
@@ -73,7 +87,7 @@ public class PlayController{
     public void initialize(){
         HBox boardhirozental[] = {new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox()}; 
         for(int i = 0 ; i<8 ; i++){
-            boardhirozental[i].setPrefSize(board.getPrefWidth(),board.getPrefHeight()/8);
+            boardhirozental[i].setPrefSize(board.getPrefWidth(),board.getPrefHeight());
             for(int j = 0 ; j<8 ; j++){
                 Button here = new Button();
                 here.setPrefSize(boardhirozental[i].getPrefWidth(),boardhirozental[i].getPrefHeight());
@@ -131,9 +145,10 @@ public class PlayController{
     }
 
     private void moveicon(Button old,Button now) throws Exception {
-        pieces selectpic = pieces.get(select.getId());
+        pieces selectpic = pieces.get(old.getId());
         selectpic.setButid(now.getId());
-        pieces.remove(select.getId());
+        pieces.remove(old.getId());
+        pieces.remove(now.getId());
         pieces.put(now.getId(), selectpic);
         seticon(now);
         removeicon(old);
@@ -141,6 +156,8 @@ public class PlayController{
 
     private void removeicon(Button tar){
         tar.setBackground(Background.EMPTY);
+        tar.setGraphic(new Button().getGraphic());
+        tar.setDefaultButton(true);
     }
 
     private void sethere(Button click){
