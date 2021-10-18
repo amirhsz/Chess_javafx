@@ -7,23 +7,13 @@ package inc.faregh.chess_javafx.controll;
 
 import static inc.faregh.chess_javafx.modle.App.pieces;
 import inc.faregh.chess_javafx.modle.Color;
-import inc.faregh.chess_javafx.modle.Type;
 import inc.faregh.chess_javafx.modle.pieces;
 import inc.faregh.chess_javafx.modle.stats;
 import java.lang.reflect.Array;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.BackgroundPosition;
-import javafx.scene.layout.BackgroundRepeat;
-import javafx.scene.layout.BackgroundSize;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -33,152 +23,182 @@ import javafx.scene.layout.VBox;
  */
 public class PlayController{
 
-    private Button btns[][]=(Button[][]) Array.newInstance((Button.class),8,8),select;
+    private Button select;
 
-    private boolean isselected = false;
+    private HBox rows[];
 
-    Color turn = Color.w;
+    private boolean isselected;
+
+    private Color turn;
 
     @FXML
     private VBox board;
 
     @FXML
-    private void action(ActionEvent e){
-        Button click = (Button) e.getSource();
-        if(isselected){
-            
-            try{
-                if(click.getBorder().getStrokes().get(0).getBottomStroke().
-                    equals(javafx.scene.paint.Color.YELLOW)||click.getBorder()
-                    .getStrokes().get(0).getBottomStroke().
-                    equals(javafx.scene.paint.Color.RED)){
-                moveicon(select,click);
-                if(turn==Color.b){
-                    turn = Color.w;
-                }else{
-                    turn = Color.b;
-                }
-                }
-            }catch(Exception ex){}
-            for(Button row[]:btns){for(Button now:row){now.setBorder(Border.EMPTY);}}
-            isselected = false;
-        }else{
-            if(pieces.containsKey(click.getId())&&pieces.get(click.getId()).getColor()==turn){
-                pieces pic = pieces.get(click.getId());
-                sethere(click);
-                for(int i = 0 ; i<8 ; i++){
-                    for(int j = 0 ; j<8 ; j++){
-                       if(pic.where(pieces.values().toArray(new pieces[pieces.size()]))[i][j]==stats.k){
-                           setk(btns[i][j]);
-                       }
-                       if(pic.where((pieces[]) pieces.values().toArray(new pieces[pieces.size()]))[i][j]==stats.u){
-                           setu(btns[i][j]);
-                       }
-                    }
-                }
-                System.out.println(pic);
-                select=click;
-                isselected = true;
-            }
-        }
+    public void initialize(){
+        init();
     }
 
     @FXML
-    public void initialize(){
-        HBox boardhirozental[] = {new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox(),new HBox()}; 
-        for(int i = 0 ; i<8 ; i++){
-            boardhirozental[i].setPrefSize(board.getPrefWidth(),board.getPrefHeight());
-            for(int j = 0 ; j<8 ; j++){
-                Button here = new Button();
-                here.setPrefSize(boardhirozental[i].getPrefWidth(),boardhirozental[i].getPrefHeight());
-                here.setId(setid(i,j));
-                here.setOnAction(e->{
-                    action(e);
-                });
-                /*here.setStyle("-fx-background-color: #99ccff");
-                if((i+j)%2==0){
-                    here.setStyle("-fx-background-color: #ccccff");
-                }*/
-                //here.setPadding(new Insets(10,10,10,10));
-                boardhirozental[i].getChildren().add(here);
-                btns[i][j]=here;
+    private void action(ActionEvent e){
+        Button click = (Button) e.getSource();
+        String butid = click.getId();
+        pieces pic;
+        if(isselected){
+            if(go(select,click)){
+                changeturn();
             }
-            board.getChildren().add(boardhirozental[i]);
-        }
-        for(int i = 0 ; i<8 ; i++){
-            for(int j = 0 ; j<8 ; j++){
-                if(pieces.get(setid(i,j))!=null){
-                    try {
-                        seticon(btns[i][j]);
-                    } catch (Exception ex) {System.out.println(ex.getMessage());}
+            removebords();
+            isselected = false;
+        }else{
+            if(pieces.containsKey(butid)){
+                pic = pieces.get(butid);
+                if(pic.getColor()==turn){
+                    select = click;
+                    select.getStyleClass().add("select");
+                    initborders(pic);
+                    isselected = true;
                 }
             }
         }
     }
 
-    private String setid(int i, int j){
+    private String makeid(int i, int j){
         return Integer.toString(i)+","+Integer.toString(j);
     }
 
-    private void seticon(Button here) throws Exception{
-        String butid = pieces.get(here.getId()).getButid();
-        pieces now = pieces.get(here.getId());
-        if(here.getId().equals(butid)){
-            Color color = now.getColor();
-            Type type = now.getType();
-            String path = "/images/"+color.toString()+"/"+type.toString()+".jpg";
-            String realpath = getClass().getResource(path).toExternalForm();
-            Image image = new Image(realpath,here.getPrefHeight(),here.getPrefWidth()
-            ,false,false);
-            BackgroundImage back = new BackgroundImage(image,BackgroundRepeat.NO_REPEAT,
-            BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT);
-            here.setBackground(new Background(back));
-        }else{
-            throw new Exception("thats not my button");
+    private void init() {
+        isselected = false;
+        turn = Color.w;
+        rows = (HBox[])Array.newInstance(HBox.class, 8);
+
+        double prefheight = board.getPrefHeight();
+        double prefwidth = board.getPrefWidth();
+        for(int i = 0 ; i<8 ; i++){
+            rows[i]=new HBox();
+            rows[i].setPrefSize(prefwidth, prefheight);
+            for(int j = 0 ; j<8 ; j++){
+                Button here = new Button();
+                here.setPrefSize(prefwidth, prefheight);
+                here.setId(makeid(i,j));
+                here.setOnAction(this::action);
+                here.setStyle("");
+                if(pieces.containsKey(here.getId())){
+                    setclass(here);
+                }
+                if((i+j)%2==0){
+                    here.getStyleClass().add("odd");
+                }else{
+                    here.getStyleClass().add("not_odd");
+                }
+                rows[i].getChildren().add(here);
+            }
+            board.getChildren().add(rows[i]);
         }
     }
 
-    private int[] extid(String id){
-        int res[] = {Integer.parseInt(id.substring(0,id.indexOf(","))),
-                    Integer.parseInt(id.substring(id.indexOf(",")+1))};
-        return res;
+    private void setclass(Button here) {
+        switch(pieces.get(here.getId()).getType()){
+            case r:
+                here.getStyleClass().add("rook");
+                break;
+            case b:
+                here.getStyleClass().add("bishop");
+                break;
+            case n:
+                here.getStyleClass().add("knight");
+                break;
+            case k:
+                here.getStyleClass().add("king");
+                break;
+            case q:
+                here.getStyleClass().add("queen");
+                break;
+            case p:
+                here.getStyleClass().add("pawn");
+                break;
+        }
+        switch(pieces.get(here.getId()).getColor()){
+            case w:
+                here.getStyleClass().add("white");
+                break;
+            case b:
+                here.getStyleClass().add("black");
+                break;
+        }
     }
 
-    private void moveicon(Button old,Button now) throws Exception {
-        pieces selectpic = pieces.get(old.getId());
-        selectpic.setButid(now.getId());
-        pieces.remove(old.getId());
-        pieces.remove(now.getId());
-        pieces.put(now.getId(), selectpic);
-        seticon(now);
-        removeicon(old);
+    private void initborders(pieces pic) {
+        for(int i = 0 ; i<8 ; i++){
+            for(int j = 0 ; j<8 ; j++){
+                stats now = pic.where(pieces.values().toArray(new pieces[pieces.size()]))[i][j];
+                rows[i].getChildren().get(j).getStyleClass().add(getbordclass(now));
+            }
+        }
     }
 
-    private void removeicon(Button tar){
-        tar.setBackground(Background.EMPTY);
-        tar.setGraphic(new Button().getGraphic());
-        tar.setDefaultButton(true);
+    private String getbordclass(stats now){
+        String result = null;
+        switch(now){
+            case u:
+                result = "usual";
+                break;
+            case k:
+                result = "kick";
+                break;
+        }
+        return result;
     }
 
-    private void sethere(Button click){
-        BorderStroke stroke = new BorderStroke(javafx.scene.paint.Color.GREEN
-                            ,BorderStrokeStyle.SOLID,null,BorderWidths.DEFAULT);
-        Border bord = new Border(stroke);
-        click.setBorder(bord);
+    private void removebords() {
+        for(int i = 0 ; i<8 ; i++){
+            for(int j = 0 ; j<8 ; j++){
+                rows[i].getChildren().get(j).getStyleClass().remove("select");
+                rows[i].getChildren().get(j).getStyleClass().remove("usual");
+                rows[i].getChildren().get(j).getStyleClass().remove("kick");
+            }
+        }
     }
 
-    private void setu(Button click){
-        BorderStroke stroke = new BorderStroke(javafx.scene.paint.Color.YELLOW
-                            ,BorderStrokeStyle.SOLID,null,BorderWidths.DEFAULT);
-        Border bord = new Border(stroke);
-        click.setBorder(bord);
+    private void changeturn() {
+        if(turn==Color.w){
+            turn = Color.b;
+        }else{
+            turn = Color.w;
+        }
     }
 
-    private void setk(Button click){
-        BorderStroke stroke = new BorderStroke(javafx.scene.paint.Color.RED
-                            ,BorderStrokeStyle.SOLID,null,BorderWidths.DEFAULT);
-        Border bord = new Border(stroke);
-        click.setBorder(bord);
+    private boolean go(Button select, Button click) {
+        boolean result = false;
+        try{
+            BorderStrokeStyle click_stroke = click.getBorder().getStrokes().get(0).getBottomStyle();
+            if(click_stroke.equals(BorderStrokeStyle.DASHED)//usual
+            ||click_stroke.equals(BorderStrokeStyle.DOTTED)){//kick
+                result = true;
+                go_to(select,click);
+            }
+        }catch(Exception e){}
+        return result;
+    }
+
+    private void go_to(Button select, Button click) {
+        pieces pic = pieces.get(select.getId());
+        String type = pic.getType().toString();
+        String color = pic.getColor().toString();
+
+        try{
+        pieces click_pic = pieces.get(click.getId());
+        String click_type = click_pic.getType().toString();
+        String click_color = click_pic.getColor().toString();
+        click.getStyleClass().removeAll(click_type,click_color);
+        }catch(Exception e){}
+
+        pic.setButid(click.getId());
+        pieces.remove(select.getId());
+        pieces.put(click.getId(), pic);
+
+        select.getStyleClass().removeAll(type,color);
+        click.getStyleClass().addAll(type,color);
     }
 
 }

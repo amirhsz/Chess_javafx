@@ -4,6 +4,7 @@ inc\faregh\chess_javafx\modle\Type.class
 inc\faregh\chess_javafx\modle\App.class
 inc\faregh\chess_javafx\modle\Bishop.class
 inc\faregh\chess_javafx\controll\MainController.class
+inc\faregh\chess_javafx\controll\PlayController$1.class
 inc\faregh\chess_javafx\controll\Load_gameController.class
 inc\faregh\chess_javafx\modle\Queen.class
 inc\faregh\chess_javafx\modle\Color.class

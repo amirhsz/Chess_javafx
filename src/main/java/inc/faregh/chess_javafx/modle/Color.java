@@ -20,5 +20,20 @@ public enum Color {
     /**
      * color black
      */
-    b
+    b;
+
+    @Override
+    public String toString(){
+        String result = null;
+        String littler = super.name();
+        switch(littler){
+            case "w":
+                result = "white";
+                break;
+            case "b":
+                result = "black";
+                break;
+        }
+        return result;
+    }
 }

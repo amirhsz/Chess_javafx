@@ -44,5 +44,33 @@ public enum Type {
     /**
      * pawn(سرباز)
      */
-    p
+    p;
+
+    @Override
+    public String toString(){
+        String result = null;
+        String litller = super.name();
+        switch(litller){
+            case "k":
+                result = "king";
+                break;
+            case "q":
+                result = "queen";
+                break;
+            case "r":
+                result = "rook";
+                break;
+            case "b":
+                result = "bishop";
+                break;
+            case "n":
+                result = "knight";
+                break;
+            case "p":
+                result = "pawn";
+                break;
+        }
+        return result;
+    }
+
 }

@@ -33,6 +33,7 @@ public class Pawn extends pieces {
         stats res[][] = (stats[][])Array.newInstance((stats.class),8,8);
         if((i!=0||i!=7)){
             if(color==Color.b){
+                if(i==6){res[i-2][j]=stats.u;}
                 if(isemp[i-1][j][0]){
                     res[i-1][j]=stats.u;
                 }
@@ -43,6 +44,7 @@ public class Pawn extends pieces {
                     res[i-1][j-1]=stats.k;
                 }
             }else{
+                if(i==1){res[i+2][j]=stats.u;}
                 if(isemp[i+1][j][0]){
                     res[i+1][j]=stats.u;
                 }
