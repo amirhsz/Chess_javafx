@@ -157,10 +157,12 @@ public class PiecesTest {
     @Test
     public void bishoptest(){
         Bishop bishop = new Bishop("4,3",Color.b);
+        Bishop bishop2 = new Bishop("3,7",Color.b);
         
         
         pieces pic[] = {
         new Bishop("4,3",Color.b),
+        new Bishop("3,7",Color.b),
         new Bishop("3,2",Color.w),
         new Bishop("3,4",Color.w),
         new Bishop("6,1",Color.w),
@@ -176,9 +178,20 @@ public class PiecesTest {
         {stats.n,stats.k,stats.n,stats.n,stats.n,stats.k,stats.n,stats.n},
         {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
         };
+        stats res2[][]={
+        {stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n},
+        {stats.n,stats.n,stats.n,stats.u,stats.n,stats.n,stats.n,stats.n},
+        };
         
         
         assertArrayEquals("test not passed(bishop)",bishop.where(pic),res);
+        assertArrayEquals("test not passed(bishop2)",bishop2.where(pic),res2);
         
     }
 

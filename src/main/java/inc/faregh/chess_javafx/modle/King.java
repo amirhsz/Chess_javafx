@@ -6,6 +6,8 @@
 package inc.faregh.chess_javafx.modle;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -57,17 +59,21 @@ public class King extends pieces {
         for(int ibh=ib-1;ibh<=ib+1;ibh++){
             for(int jbh=jb-1;jbh<=jb+1;jbh++){
                 for(pieces p:pic){
-                    if(p.getI()==ibh&&p.getJ()==jbh&&p.getType()==Type.k){
+                    if(p.i==ibh&&p.j==jbh&&p.getType()==Type.k){
                         kings++;
                     }
                 }
             }
         }
         res=kings<2;
+
         //no one kick him condition
         for(pieces p:pic){
             if(p.getType()!=Type.k&&p.where(pic)[ib][jb]==stats.u&&p.getColor()!=color){
                 res=false;
+            }
+            if(p.getType()==Type.p&&p.where(pic)[ib][jb]!=stats.k){
+                res = false;
             }
         }
         return res;

@@ -6,6 +6,8 @@
 package inc.faregh.chess_javafx.modle;
 
 import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
 
 
 /**
@@ -60,23 +62,6 @@ public abstract class pieces {
     public String getButid() {
         return butid;
     }
-
-    /**
-     *
-     * @return our row in the game board
-     */
-    public int getI() {
-        return i;
-    }
-
-    /**
-     *
-     * @return our column in the game board
-     */
-    public int getJ() {
-        return j;
-    }
-
     /**
      *
      * @param butid id of our button
@@ -116,7 +101,7 @@ public abstract class pieces {
     /**
      *
      * @param pic our board state
-     * @return where are empty
+     * @return its a [][][] boolean that shows ([i][j][0](is empty that button),[i][j][1](can we kick that button))
      */
     protected boolean[][][] isemp(pieces pic[]){
         String but[][] = buts();
@@ -140,7 +125,7 @@ public abstract class pieces {
      * @param res the array that we want to fill it
      * @return all of null on the board to no where
      */
-    protected stats[][] fill(stats[][] res){
+    protected static stats[][] fill(stats[][] res){
         stats changed[][] = (stats[][])Array.newInstance(stats.class,8,8);
         for(int ib = 0; ib<8;ib++){
             for(int jb = 0; jb<8;jb++){
@@ -158,13 +143,11 @@ public abstract class pieces {
      * @param pic our board
      * @return we should implement this method in all of sub classes and return where can we go
      */
-    public stats[][] where(pieces pic[]){
-        return null;
-    }
+    public native stats[][] where(pieces ...pic);
 
     @Override
     public String toString(){
         return "type: "+type+", color: "+color+", button id: "+butid;
     }
 
-}
+            }
