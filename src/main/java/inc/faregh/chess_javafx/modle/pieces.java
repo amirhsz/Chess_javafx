@@ -6,8 +6,6 @@
 package inc.faregh.chess_javafx.modle;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.HashMap;
 
 
 /**
@@ -48,9 +46,7 @@ public abstract class pieces {
      * @param color our piece color
      */
     protected pieces(String butid, Type type, Color color) {
-        this.butid = butid;
-        i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
-        j = Integer.parseInt(this.butid.substring(this.butid.indexOf(",")+1));
+        setButid(butid);
         this.type = type;
         this.color = color;
     }
@@ -68,8 +64,8 @@ public abstract class pieces {
      */
     public void setButid(String butid) {
         this.butid = butid;
-        i = Integer.parseInt(this.butid.substring(0, this.butid.indexOf(",")));
-        j = Integer.parseInt(this.butid.substring(this.butid.indexOf(",")+1));
+        i = extI(butid);
+        j = extJ(butid);
     }
 
     /**
@@ -150,4 +146,12 @@ public abstract class pieces {
         return "type: "+type+", color: "+color+", button id: "+butid;
     }
 
-            }
+    public static int extI(String id){
+        return Integer.parseInt(id.substring(0, id.indexOf(",")));
+    }
+
+    public static int extJ(String id){
+        return Integer.parseInt(id.substring(id.indexOf(",")+1));
+    }
+
+}

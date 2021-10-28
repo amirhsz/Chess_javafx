@@ -15,6 +15,7 @@ import static org.junit.Assert.assertArrayEquals;
  *
  * @author Amir
  */
+@Ignore
 public class PiecesTest {
 
     

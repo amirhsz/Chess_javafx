@@ -6,8 +6,7 @@
 package inc.faregh.chess_javafx.modle;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -68,13 +67,20 @@ public class King extends pieces {
         res=kings<2;
 
         //no one kick him condition
-        for(pieces p:pic){
-            if(p.getType()!=Type.k&&p.where(pic)[ib][jb]==stats.u&&p.getColor()!=color){
+        ArrayList<pieces>picc = tolist(pic);
+        picc.set(picc.indexOf(this), new King((ib+","+jb),color));//problem: if a !color pieces be there, than if our pieces can kick that so we cant go there because someone can kick that id(our piec can kick the !color piec) 
+        for(pieces p:picc){
+            if(p.getType()!=Type.k&&p.where(picc.toArray(new pieces[picc.size()]))[ib][jb]==stats.k){
                 res=false;
             }
-            if(p.getType()==Type.p&&p.where(pic)[ib][jb]!=stats.k){
-                res = false;
-            }
+        }
+        return res;
+    }
+
+    private ArrayList<pieces> tolist(pieces pic[]){
+        ArrayList<pieces> res = new ArrayList();
+        for(pieces p:pic){
+            res.add(p);
         }
         return res;
     }
