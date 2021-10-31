@@ -7,12 +7,16 @@ package inc.faregh.chess_javafx.controll;
 
 import static inc.faregh.chess_javafx.modle.App.pieces;
 import inc.faregh.chess_javafx.modle.Color;
+import inc.faregh.chess_javafx.modle.King;
+import inc.faregh.chess_javafx.modle.Type;
 import inc.faregh.chess_javafx.modle.pieces;
 import inc.faregh.chess_javafx.modle.stats;
 import java.lang.reflect.Array;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -71,6 +75,7 @@ public class PlayController{
         isselected = false;
         turn = Color.w;
         rows = (HBox[])Array.newInstance(HBox.class, 8);
+        inittit();
 
         double prefheight = board.getPrefHeight();
         double prefwidth = board.getPrefWidth();
@@ -82,7 +87,6 @@ public class PlayController{
                 here.setPrefSize(prefwidth, prefheight);
                 here.setId(makeid(i,j));
                 here.setOnAction(this::action);
-                here.setStyle("");
                 if(pieces.containsKey(here.getId())){
                     setclass(here);
                 }
@@ -93,6 +97,7 @@ public class PlayController{
                 }
                 rows[i].getChildren().add(here);
             }
+            rows[i].getChildren().add(new Label(String.valueOf(i)));
             board.getChildren().add(rows[i]);
         }
     }
@@ -199,6 +204,20 @@ public class PlayController{
 
         select.getStyleClass().removeAll(type,color);
         click.getStyleClass().addAll(type,color);
+    }
+
+    private void inittit() {
+        HBox tit = new HBox();
+        double prefheight = board.getPrefHeight();
+        double prefwidth = board.getPrefWidth();
+        tit.setPrefSize(prefwidth, prefheight);
+        tit.setPadding(new Insets(0,0,0,prefwidth/9));
+        for(char a = 'a' ; a<='h' ; a++){
+            Label lbl = new Label(String.valueOf(a));
+            lbl.setPrefSize(prefwidth, prefheight);
+            tit.getChildren().add(lbl);
+        }
+        board.getChildren().add(tit);
     }
 
 }
