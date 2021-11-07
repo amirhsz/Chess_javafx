@@ -6,7 +6,6 @@
 package inc.faregh.chess_javafx.controll;
 
 import static inc.faregh.chess_javafx.controll.MainController.hide;
-import java.io.FileWriter;
 import java.io.IOException;  
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,7 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
-import org.json.JSONObject;
 
 public class Genrate_game {
 

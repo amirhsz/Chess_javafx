@@ -1,3 +1,7 @@
+.text{
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size : 130%;
+}
 .button{
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -52,8 +56,8 @@
     -fx-border-color: #009933;
 }
 .odd{
-    -fx-background-color: #ccccff;
+    -fx-background-color: #e7bda9;
 }
 .not_odd{
-    -fx-background-color: #33ffff;
+    -fx-background-color: #a0522d;
 }
