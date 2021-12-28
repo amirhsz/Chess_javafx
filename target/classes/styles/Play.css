@@ -1,0 +1,63 @@
+.text{
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size : 130%;
+}
+.button{
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: contain;
+    -fx-border-width: 200%;
+}
+.rook.black{
+    -fx-background-image: url(../images/b/r.jpg);
+}
+.bishop.black{
+    -fx-background-image: url(../images/b/b.jpg);
+}
+.king.black{
+    -fx-background-image: url(../images/b/k.jpg);
+}
+.knight.black{
+    -fx-background-image: url(../images/b/n.jpg);
+}
+.pawn.black{
+    -fx-background-image: url(../images/b/p.jpg);
+}
+.queen.black{
+    -fx-background-image: url(../images/b/q.jpg);
+}
+.rook.white{
+    -fx-background-image: url(../images/w/r.jpg);
+}
+.bishop.white{
+    -fx-background-image: url(../images/w/b.jpg);
+}
+.king.white{
+    -fx-background-image: url(../images/w/k.jpg);
+}
+.knight.white{
+    -fx-background-image: url(../images/w/n.jpg);
+}
+.pawn.white{
+    -fx-background-image: url(../images/w/p.jpg);
+}
+.queen.white{
+    -fx-background-image: url(../images/w/q.jpg);
+}
+.usual{
+    -fx-border-color: #ffff00;
+    -fx-border-style: dashed;
+}
+.kick{
+    -fx-border-color:  #ff0033;
+    -fx-border-style: dotted;
+}
+.select{
+    -fx-border-color: #009933;
+}
+.odd{
+    -fx-background-color: #e7bda9;
+}
+.not_odd{
+    -fx-background-color: #a0522d;
+}
